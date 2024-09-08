@@ -30,3 +30,4 @@ hs_err_pid*
 replay_pid*
 
 # ===== end -------- from Java.gitignore @ https://github.com/github/gitignore
+/movie-info-service/src/main/resources/application-secrets.properties

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MovieInfoServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="movie-info-service" />
+    <option name="PROGRAM_PARAMETERS" value="--spring.config.additional-location=movie-info-service/src/main/resources/application-secrets.properties" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.javabrains.movieinfoservice.MovieInfoServiceApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
