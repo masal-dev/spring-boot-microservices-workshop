@@ -1,5 +1,6 @@
 package io.javabrains.moviecatalogservice.resources;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import io.javabrains.moviecatalogservice.models.CatalogItem;
 import io.javabrains.moviecatalogservice.models.Movie;
 import io.javabrains.moviecatalogservice.models.Rating;
@@ -26,7 +27,9 @@ public class CatalogResource {
     @Autowired
     WebClient.Builder webClientBuilder;
 
+
     @RequestMapping("/{userId}")
+    @HystrixCommand
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
 
         UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratingsdata/user/" + userId, UserRating.class);
