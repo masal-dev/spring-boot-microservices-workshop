@@ -29,7 +29,7 @@ public class CatalogResource {
 
 
     @RequestMapping("/{userId}")
-    @HystrixCommand
+    @HystrixCommand(fallbackMethod = "getFallBackCatalog")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
 
         UserRating userRating = restTemplate.getForObject("http://ratings-data-service/ratingsdata/user/" + userId, UserRating.class);
@@ -41,6 +41,10 @@ public class CatalogResource {
                 })
                 .collect(Collectors.toList());
 
+    }
+
+    public List<CatalogItem> getFallBackCatalog(@PathVariable("userId") String userId) {
+        return Collections.singletonList(new CatalogItem("No movie", "", 0));
     }
 }
 
